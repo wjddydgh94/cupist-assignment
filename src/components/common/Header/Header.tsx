@@ -1,7 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 
 const Header = () => {
-  return <>123</>;
+  return <HeaderWrapper>123</HeaderWrapper>;
 };
+
+const HeaderWrapper = styled.header``;
 
 export default Header;

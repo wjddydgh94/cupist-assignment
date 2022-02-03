@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import palette from "styles/palette";
@@ -18,11 +17,13 @@ const Header = () => {
             <p>라이브</p>
           </li>
         </HeaderUl>
-        <img
-          className="setting-icon"
-          src="/icon/main/setting@3x.png"
-          alt="설정 아이콘"
-        />
+        <Link to="edit-profile">
+          <img
+            className="setting-icon"
+            src="/icon/main/setting@3x.png"
+            alt="설정 아이콘"
+          />
+        </Link>
       </HeaderContainer>
     </HeaderWrapper>
   );
@@ -36,6 +37,7 @@ const HeaderWrapper = styled.header`
   padding: 12px 12px 0 8px;
   border-bottom: 1px solid ${palette.Gray_1};
   width: 100%;
+  height: 57px;
   z-index: 10;
 `;
 

@@ -13,7 +13,7 @@ const CustomIntroduction = () => {
               src="/icon/recommendations/today@3x.png"
               alt="글램 추천 아이콘"
             />
-            <p>글램 추천</p>
+            <span>글램 추천</span>
             <img
               className="hot-icon"
               src="icon/recommendations/hot@3x.png"
@@ -29,7 +29,7 @@ const CustomIntroduction = () => {
               src="/icon/recommendations/dia@3x.png"
               alt="최상위 매력 아이콘"
             />
-            <p>최상위 매력</p>
+            <span>최상위 매력</span>
             <img
               className="hot-icon"
               src="icon/recommendations/hot@3x.png"
@@ -45,7 +45,7 @@ const CustomIntroduction = () => {
               src="/icon/recommendations/glamour@3x.png"
               alt="볼륨감 있는 체형 아이콘"
             />
-            <p>볼륨감 있는 체형</p>
+            <span>볼륨감 있는 체형</span>
             <img
               className="hot-icon"
               src="icon/recommendations/hot@3x.png"
@@ -61,7 +61,7 @@ const CustomIntroduction = () => {
               src="/icon/recommendations/withpet@3x.png"
               alt="반려 동물을 키우는 아이콘"
             />
-            <p>반려 동물을 키우는</p>
+            <span>반려 동물을 키우는</span>
           </div>
           <button>선택</button>
         </li>
@@ -95,7 +95,7 @@ const CustomIntroductionSection = styled.section`
         img.icon {
           width: 48px;
         }
-        p {
+        span {
           margin-left: 12px;
           font-size: 16px;
           line-height: 160%;

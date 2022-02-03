@@ -1,8 +1,28 @@
+import Dialog from "components/common/Dialog";
 import TitleHeader from "components/common/TitleHeader";
+import { useState } from "react";
 import styled from "styled-components";
 import palette from "styles/palette";
+import { dialogData } from "types/dialog";
 
 const EditProfile = () => {
+  const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
+  const [dialogData, setDialogData] = useState<dialogData | null>(null);
+
+  const onClickHeight = () => {
+    let dataArr = [];
+    for (let i = 120; i <= 220; i++) {
+      dataArr.push(i + "cm");
+    }
+    setDialogData({ title: "키", data: dataArr });
+    setIsOpenDialog(true);
+  };
+
+  const onClickBodyTypes = () => {
+    setDialogData({ title: "체형", data: ["마른", "보통", "근육", "통통"] });
+    setIsOpenDialog(true);
+  };
+
   return (
     <>
       <TitleHeader />
@@ -74,13 +94,13 @@ const EditProfile = () => {
         <ProfileInfoSection>
           <div className="row">
             <p className="title">키</p>
-            <div className="info">
+            <div className="info" onClick={onClickHeight}>
               <p className="active">160cm</p>
             </div>
           </div>
           <div className="row">
             <p className="title">체형</p>
-            <div className="info">
+            <div className="info" onClick={onClickBodyTypes}>
               <p className="active">보통</p>
             </div>
           </div>
@@ -112,6 +132,9 @@ const EditProfile = () => {
           </div>
         </ProfileInfoSection>
       </EditProfileWrapper>
+      {isOpenDialog && (
+        <Dialog closeModal={setIsOpenDialog} dialogData={dialogData} />
+      )}
     </>
   );
 };

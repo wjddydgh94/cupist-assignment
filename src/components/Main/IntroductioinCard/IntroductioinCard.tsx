@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import palette from "styles/palette";
 
@@ -99,7 +98,6 @@ const IntroductionSection = styled.section`
   li {
     position: relative;
     width: 100%;
-    background-color: #000;
     border-radius: 5px;
     overflow: hidden;
     margin-bottom: 12px;

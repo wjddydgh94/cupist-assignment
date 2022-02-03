@@ -1,6 +1,4 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./AppRouter";
 import "./styles/css/reset.css";
 

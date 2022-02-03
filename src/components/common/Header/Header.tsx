@@ -33,8 +33,10 @@ const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
-  padding: 12px 12px 12px 8px;
+  padding: 12px 12px 0 8px;
+  border-bottom: 1px solid ${palette.Gray_1};
   width: 100%;
+  z-index: 10;
 `;
 
 const HeaderContainer = styled.section`

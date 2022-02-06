@@ -9,6 +9,11 @@
 - react-textarea-autosize를 사용하여 textarea autosize 적용
   - textarea의 내용에 따라 textarea의 높이를 조절해주는 모듈
 
+### style
+
+- reset.css로 global css reset
+- palette를 구성하여 color set 관리
+
 ## 메인 페이지
 
 https://user-images.githubusercontent.com/52948971/152685907-c3d861a0-cbe1-40d0-9b76-797c69ca8c62.mov

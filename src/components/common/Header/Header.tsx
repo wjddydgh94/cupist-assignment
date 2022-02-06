@@ -8,7 +8,10 @@ const Header = () => {
       <HeaderContainer>
         <HeaderUl>
           <li className="active">
-            <img src="/icon/main/logo@3x.png" alt="글램 로고 아이콘" />
+            <img
+              src="/cupist-assignment/icon/main/logo@3x.png"
+              alt="글램 로고 아이콘"
+            />
           </li>
           <li>근처</li>
           <li>라이브</li>
@@ -16,7 +19,7 @@ const Header = () => {
         <Link to="edit-profile">
           <img
             className="setting-icon"
-            src="/icon/main/setting@3x.png"
+            src="/cupist-assignment/icon/main/setting@3x.png"
             alt="설정 아이콘"
           />
         </Link>

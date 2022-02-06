@@ -16,13 +16,13 @@ const CustomIntroduction = ({
           <div>
             <img
               className="icon"
-              src="/icon/recommendations/today@3x.png"
+              src="/cupist-assignment/icon/recommendations/today@3x.png"
               alt="글램 추천 아이콘"
             />
             <span>글램 추천</span>
             <img
               className="hot-icon"
-              src="icon/recommendations/hot@3x.png"
+              src="/cupist-assignment/icon/recommendations/hot@3x.png"
               alt="핫 아이콘"
             />
           </div>
@@ -32,13 +32,13 @@ const CustomIntroduction = ({
           <div>
             <img
               className="icon"
-              src="/icon/recommendations/dia@3x.png"
+              src="/cupist-assignment/icon/recommendations/dia@3x.png"
               alt="최상위 매력 아이콘"
             />
             <span>최상위 매력</span>
             <img
               className="hot-icon"
-              src="icon/recommendations/hot@3x.png"
+              src="/cupist-assignment/icon/recommendations/hot@3x.png"
               alt="핫 아이콘"
             />
           </div>
@@ -48,13 +48,13 @@ const CustomIntroduction = ({
           <div>
             <img
               className="icon"
-              src="/icon/recommendations/glamour@3x.png"
+              src="/cupist-assignment/icon/recommendations/glamour@3x.png"
               alt="볼륨감 있는 체형 아이콘"
             />
             <span>볼륨감 있는 체형</span>
             <img
               className="hot-icon"
-              src="icon/recommendations/hot@3x.png"
+              src="/cupist-assignment/icon/recommendations/hot@3x.png"
               alt="핫 아이콘"
             />
           </div>
@@ -64,7 +64,7 @@ const CustomIntroduction = ({
           <div>
             <img
               className="icon"
-              src="/icon/recommendations/withpet@3x.png"
+              src="/cupist-assignment/icon/recommendations/withpet@3x.png"
               alt="반려 동물을 키우는 아이콘"
             />
             <span>반려 동물을 키우는</span>

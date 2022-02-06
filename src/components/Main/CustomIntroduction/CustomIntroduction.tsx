@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import palette from "styles/palette";
 
-const CustomIntroduction = () => {
+interface CustomIntroductionPropsType {
+  onClickCustomButton: () => void;
+}
+
+const CustomIntroduction = ({
+  onClickCustomButton,
+}: CustomIntroductionPropsType) => {
   return (
     <CustomIntroductionSection>
       <h2>맞춤 추천</h2>
@@ -20,7 +26,7 @@ const CustomIntroduction = () => {
               alt="핫 아이콘"
             />
           </div>
-          <button>선택</button>
+          <button onClick={onClickCustomButton}>선택</button>
         </li>
         <li>
           <div>
@@ -36,7 +42,7 @@ const CustomIntroduction = () => {
               alt="핫 아이콘"
             />
           </div>
-          <button>선택</button>
+          <button onClick={onClickCustomButton}>선택</button>
         </li>
         <li>
           <div>
@@ -52,7 +58,7 @@ const CustomIntroduction = () => {
               alt="핫 아이콘"
             />
           </div>
-          <button>선택</button>
+          <button onClick={onClickCustomButton}>선택</button>
         </li>
         <li>
           <div>
@@ -63,7 +69,7 @@ const CustomIntroduction = () => {
             />
             <span>반려 동물을 키우는</span>
           </div>
-          <button>선택</button>
+          <button onClick={onClickCustomButton}>선택</button>
         </li>
       </ul>
       <button className="more-btn">24개 항목 모두 보기</button>

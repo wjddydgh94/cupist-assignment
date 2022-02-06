@@ -1,27 +1,22 @@
 import Dialog from "components/common/Dialog";
 import TitleHeader from "components/common/TitleHeader";
-import { useState } from "react";
 import styled from "styled-components";
 import palette from "styles/palette";
-import { dialogData } from "types/dialog";
+import TextareaAutosize from "react-textarea-autosize";
+import useEditProfile from "./hooks/useEditProfile";
 
 const EditProfile = () => {
-  const [isOpenDialog, setIsOpenDialog] = useState<boolean>(false);
-  const [dialogData, setDialogData] = useState<dialogData | null>(null);
-
-  const onClickHeight = () => {
-    let dataArr = [];
-    for (let i = 120; i <= 220; i++) {
-      dataArr.push(i + "cm");
-    }
-    setDialogData({ title: "키", data: dataArr });
-    setIsOpenDialog(true);
-  };
-
-  const onClickBodyTypes = () => {
-    setDialogData({ title: "체형", data: ["마른", "보통", "근육", "통통"] });
-    setIsOpenDialog(true);
-  };
+  const {
+    onClickHeight,
+    onClickBodyTypes,
+    onClickEducation,
+    isOpenDialog,
+    dialogData,
+    setIsOpenDialog,
+    profileData,
+    onChangeInputs,
+    onClickDialogItem,
+  } = useEditProfile();
 
   return (
     <>
@@ -29,24 +24,16 @@ const EditProfile = () => {
       <EditProfileWrapper>
         <ProfileImgSection>
           <ul>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
-            <li>
-              <img src="/image/person@3x.png" alt="기본 프로필 이미지" />
-            </li>
+            {profileData.pictures.map((picture, idx) => {
+              return (
+                <li key={idx}>
+                  <img
+                    src={picture ? picture : "/image/person@3x.png"}
+                    alt="기본 프로필 이미지"
+                  />
+                </li>
+              );
+            })}
           </ul>
           <p>
             다양한 매력을 보여줄 수 있는 사진을 올려주세요
@@ -57,7 +44,10 @@ const EditProfile = () => {
           <div className="row">
             <p className="title">닉네임</p>
             <div className="info">
-              <p className="active">라로앙</p>
+              <input
+                className={profileData?.name ? "active" : ""}
+                value={profileData?.name}
+              />
               <img
                 className="lock-icon"
                 src="/icon/profile_edit/lock@3x.png"
@@ -68,25 +58,42 @@ const EditProfile = () => {
           <div className="row">
             <p className="title">성별</p>
             <div className="info">
-              <p>여성</p>
+              <input
+                className={profileData?.gender ? "active" : ""}
+                value={profileData?.gender === "M" ? "남성" : "여성"}
+              />
             </div>
           </div>
           <div className="row">
             <div className="title">생일</div>
             <div className="info">
-              <p className="active">1996-06-18</p>
+              <input
+                className={profileData?.birthday ? "active" : ""}
+                value={profileData?.birthday}
+              />
             </div>
           </div>
           <div className="row">
             <p className="title">위치</p>
             <div className="info">
-              <p className="active">서울특별시</p>
+              <input
+                className={profileData?.location ? "active" : ""}
+                value={profileData?.location}
+              />
             </div>
           </div>
         </ProfileInfoSection>
         <IntroduceSection>
           <p className="title">소개</p>
-          <p className="introduce">회원님의 매력을 간단하게 소개해주세요.</p>
+          <TextareaAutosize
+            className="introduce"
+            placeholder="회원님의 매력을 간단하게 소개해주세요."
+            value={profileData?.introduction ? profileData.introduction : ""}
+            name="introduction"
+            onChange={(e) => {
+              onChangeInputs(e);
+            }}
+          ></TextareaAutosize>
           <p className="description">
             SNS 아이디 등 연락처 입력 시 서비스 이용 제한됩니다.
           </p>
@@ -94,14 +101,42 @@ const EditProfile = () => {
         <ProfileInfoSection>
           <div className="row">
             <p className="title">키</p>
-            <div className="info" onClick={onClickHeight}>
-              <p className="active">160cm</p>
+            <div className="info">
+              <input
+                key={profileData.height}
+                onClick={(e) => onClickHeight(e)}
+                className={profileData.height ? "active" : ""}
+                readOnly
+                name="height"
+                value={
+                  profileData.height
+                    ? `${profileData.height}cm`
+                    : "입력해주세요"
+                }
+              />
             </div>
           </div>
           <div className="row">
             <p className="title">체형</p>
-            <div className="info" onClick={onClickBodyTypes}>
-              <p className="active">보통</p>
+            <div className="info">
+              <input
+                onClick={(e) => onClickBodyTypes(e)}
+                className={profileData.body_type ? "active" : ""}
+                readOnly
+                name="body_type"
+                value={
+                  profileData.body_type &&
+                  (profileData.body_type === "body_type_00"
+                    ? "마른"
+                    : profileData.body_type === "body_type_01"
+                    ? "보통"
+                    : profileData.body_type === "body_type_02"
+                    ? "근육"
+                    : profileData.body_type === "body_type_03"
+                    ? "통통"
+                    : "입력해주세요")
+                }
+              />
             </div>
           </div>
         </ProfileInfoSection>
@@ -109,31 +144,82 @@ const EditProfile = () => {
           <div className="row">
             <p className="title">직장</p>
             <div className="info">
-              <p className="gray">입력해주세요</p>
+              <input
+                className={profileData.company ? "active" : ""}
+                placeholder="입력해주세요"
+                name="company"
+                onChange={(e) => {
+                  onChangeInputs(e);
+                }}
+                value={profileData.company ? profileData.company : ""}
+              />
             </div>
           </div>
           <div className="row">
             <p className="title">직업</p>
             <div className="info">
-              <p className="active">디자인 관련자</p>
+              <input
+                className={profileData.job ? "active" : ""}
+                placeholder="입력해주세요"
+                name="job"
+                onChange={(e) => {
+                  onChangeInputs(e);
+                }}
+                value={profileData.job ? profileData.job : ""}
+              />
             </div>
           </div>
           <div className="row">
             <p className="title">학력</p>
             <div className="info">
-              <p className="gray">선택해주세요</p>
+              <input
+                onClick={(e) => onClickEducation(e)}
+                className={profileData.education ? "active" : ""}
+                placeholder="입력해주세요"
+                name="education"
+                readOnly
+                value={
+                  profileData.education
+                    ? profileData.education === "education_00"
+                      ? "고등학교"
+                      : profileData.education === "education_01"
+                      ? "전문대"
+                      : profileData.education === "education_02"
+                      ? "대학교"
+                      : profileData.education === "education_03"
+                      ? "석사"
+                      : profileData.education === "education_04"
+                      ? "박사"
+                      : profileData.education === "education_05"
+                      ? "기타"
+                      : ""
+                    : ""
+                }
+              />
             </div>
           </div>
           <div className="row">
             <p className="title">학교</p>
             <div className="info">
-              <p className="active">서울여대</p>
+              <input
+                className={profileData.school ? "active" : ""}
+                placeholder="입력해주세요"
+                name="school"
+                onChange={(e) => {
+                  onChangeInputs(e);
+                }}
+                value={profileData.school ? profileData.school : ""}
+              />
             </div>
           </div>
         </ProfileInfoSection>
       </EditProfileWrapper>
       {isOpenDialog && (
-        <Dialog closeModal={setIsOpenDialog} dialogData={dialogData} />
+        <Dialog
+          closeModal={() => setIsOpenDialog(false)}
+          dialogData={dialogData}
+          onClickDialogItem={onClickDialogItem}
+        />
       )}
     </>
   );
@@ -207,10 +293,15 @@ const ProfileInfoSection = styled.section`
       display: flex;
       align-items: center;
       padding-left: 16px;
-      p {
+      input {
+        border: 0;
+        padding: 0;
         font-size: 16px;
         font-weight: 400;
         color: ${palette.Black};
+        &::placeholder {
+          color: ${palette.Gray_2};
+        }
         &.active {
           color: ${palette.Glam_Blue};
         }
@@ -237,10 +328,17 @@ const IntroduceSection = styled.section`
     height: 35px;
     line-height: 35px;
   }
-  .introduce {
+  textarea {
+    width: 100%;
     font-size: 14px;
     font-weight: 400;
-    color: ${palette.Gray_2};
+    resize: none;
+    &::placeholder {
+      color: ${palette.Gray_2};
+    }
+    &:focus {
+      outline: none;
+    }
   }
   .description {
     font-size: 12px;

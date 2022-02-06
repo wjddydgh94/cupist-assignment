@@ -1,16 +1,21 @@
 import styled from "styled-components";
 import palette from "styles/palette";
-import { dialogData } from "types/dialog";
+import { dialogDataType } from "types/dialog";
 
 interface DialogPropsType {
-  closeModal: (value: boolean) => void;
-  dialogData: dialogData | null;
+  closeModal: () => void;
+  dialogData: dialogDataType | null;
+  onClickDialogItem: (key: string | number, title: string) => void;
 }
 
-const Dialog = ({ closeModal, dialogData }: DialogPropsType) => {
+const Dialog = ({
+  closeModal,
+  dialogData,
+  onClickDialogItem,
+}: DialogPropsType) => {
   const handleCloseModal = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
-      closeModal(false);
+      closeModal();
     }
   };
 
@@ -19,8 +24,17 @@ const Dialog = ({ closeModal, dialogData }: DialogPropsType) => {
       <DialogContainer>
         <p className="title">{dialogData?.title}</p>
         <ul>
-          {dialogData?.data.map((n, idx) => {
-            return <li key={idx}>{n}</li>;
+          {dialogData?.data.map((item) => {
+            return (
+              <li
+                key={item.key}
+                className={dialogData.state === item.value ? "active" : ""}
+                onClick={() => onClickDialogItem(item.key, dialogData?.title)}
+              >
+                {item.value}
+                {dialogData.isHeight && "cm"}
+              </li>
+            );
           })}
         </ul>
       </DialogContainer>

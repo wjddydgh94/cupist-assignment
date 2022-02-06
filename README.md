@@ -11,7 +11,7 @@
 
 ## 메인 페이지
 
-<img src="https://user-images.githubusercontent.com/52948971/152685752-402f13a3-a21a-4cc6-a70a-4a11605efb64.mov" />
+https://user-images.githubusercontent.com/52948971/152685907-c3d861a0-cbe1-40d0-9b76-797c69ca8c62.mov
 
 ### 구현 기능
 
@@ -38,7 +38,7 @@ x버튼, 좋아요 버튼
 
 ## 프로필 수정 페이지
 
-<img src="https://user-images.githubusercontent.com/52948971/152684854-141c5344-371e-4a8e-b53f-37eb84e97fa5.mov" />
+https://user-images.githubusercontent.com/52948971/152685926-1ecd8556-a245-4231-8303-52afd4feebb9.mov
 
 ### 구현 기능
 

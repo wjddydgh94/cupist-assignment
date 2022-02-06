@@ -7,7 +7,7 @@ const AppRouter = () => {
     <Routes>
       <Route path="/cupist-assignment/" element={<MainPage />} />
       <Route
-        path="/cupist-assignment/edit-profile"
+        path="/cupist-assignment/edit-profile/"
         element={<EditProfilePage />}
       />
     </Routes>

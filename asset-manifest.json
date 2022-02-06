@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/cupist-assignment/static/css/main.3da145f3.css",
-    "main.js": "/cupist-assignment/static/js/main.7e7128d0.js",
+    "main.js": "/cupist-assignment/static/js/main.b533e93d.js",
     "index.html": "/cupist-assignment/index.html",
     "main.3da145f3.css.map": "/cupist-assignment/static/css/main.3da145f3.css.map",
-    "main.7e7128d0.js.map": "/cupist-assignment/static/js/main.7e7128d0.js.map"
+    "main.b533e93d.js.map": "/cupist-assignment/static/js/main.b533e93d.js.map"
   },
   "entrypoints": [
     "static/css/main.3da145f3.css",
-    "static/js/main.7e7128d0.js"
+    "static/js/main.b533e93d.js"
   ]
 }

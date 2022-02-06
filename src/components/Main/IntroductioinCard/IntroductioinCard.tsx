@@ -91,12 +91,12 @@ const IntroductionSection = styled.section`
         left: 0;
         width: 100%;
         padding: 16px;
-        background: rgb(127, 127, 127);
-        background: rgb(26, 26, 26);
+        background: rgb(89, 89, 89);
         background: linear-gradient(
-          0deg,
-          rgba(26, 26, 26, 1) 20%,
-          rgba(255, 255, 255, 0) 100%
+          180deg,
+          rgba(89, 89, 89, 0) 10%,
+          rgba(56, 56, 56, 0.5438550420168067) 35%,
+          rgba(56, 56, 56, 1) 63%
         );
         .tag {
           display: inline-block;

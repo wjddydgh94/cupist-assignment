@@ -21,7 +21,11 @@ const ImgSlider = ({ item }: ImgSliderPropsType) => {
         {item.map((picture) => {
           return (
             <div className="img-box">
-              <img className="profile-img" src={picture} alt="프로필 이미지" />
+              <img
+                className="profile-img"
+                src={`/cupist-assignment${picture}`}
+                alt="프로필 이미지"
+              />
             </div>
           );
         })}

@@ -28,7 +28,11 @@ const EditProfile = () => {
               return (
                 <li key={idx}>
                   <img
-                    src={picture ? picture : "/image/person@3x.png"}
+                    src={
+                      picture
+                        ? `/cupist-assignment${picture}`
+                        : "/cupist-assignment/image/person@3x.png"
+                    }
                     alt="기본 프로필 이미지"
                   />
                 </li>
@@ -50,7 +54,7 @@ const EditProfile = () => {
               />
               <img
                 className="lock-icon"
-                src="/icon/profile_edit/lock@3x.png"
+                src="/cupist-assignment/icon/profile_edit/lock@3x.png"
                 alt="자물쇠 아이콘"
               />
             </div>

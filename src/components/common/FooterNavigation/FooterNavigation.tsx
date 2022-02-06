@@ -6,19 +6,34 @@ const FooterNavigation = () => {
     <FooterWrapper>
       <ul>
         <li>
-          <img src="/icon/nav/home@3x.png" alt="집 모양 아이콘" />
+          <img
+            src="/cupist-assignment/icon/nav/home@3x.png"
+            alt="집 모양 아이콘"
+          />
         </li>
         <li>
-          <img src="/icon/nav/live@3x.png" alt="동영상 재생 아이콘" />
+          <img
+            src="/cupist-assignment/icon/nav/live@3x.png"
+            alt="동영상 재생 아이콘"
+          />
         </li>
         <li>
-          <img src="/icon/nav/station@3x.png" alt="하트 모양 아이콘" />
+          <img
+            src="/cupist-assignment/icon/nav/station@3x.png"
+            alt="하트 모양 아이콘"
+          />
         </li>
         <li>
-          <img src="/icon/nav/connection@3x.png" alt="말풍선 아이콘" />
+          <img
+            src="/cupist-assignment/icon/nav/connection@3x.png"
+            alt="말풍선 아이콘"
+          />
         </li>
         <li>
-          <img src="/icon/nav/more@3x.png" alt="프로필 아이콘" />
+          <img
+            src="/cupist-assignment/icon/nav/more@3x.png"
+            alt="프로필 아이콘"
+          />
         </li>
       </ul>
     </FooterWrapper>

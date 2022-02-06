@@ -25,7 +25,10 @@ const IntroductionCard = ({
                 {isTodayRecommend && <span className="tag">오늘의 추천</span>}
                 <p className="user-name">
                   {item.name}, {item.age}
-                  <img src="/icon/main/info@3x.png" alt="정보 아이콘" />
+                  <img
+                    src="/cupist-assignment/icon/main/info@3x.png"
+                    alt="정보 아이콘"
+                  />
                 </p>
                 {item.introduction ? (
                   <p className="introduce">{item.introduction}</p>
@@ -42,7 +45,7 @@ const IntroductionCard = ({
                     onClick={() => onClickDeleteButton(item.id)}
                   >
                     <img
-                      src="/icon/main/delete@3x.png"
+                      src="/cupist-assignment/icon/main/delete@3x.png"
                       alt="카드 삭제 버튼 아이콘"
                     />
                   </button>

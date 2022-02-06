@@ -7,7 +7,10 @@ const TitleHeader = () => {
   return (
     <HeaderWrapper>
       <button onClick={() => navigate(-1)}>
-        <img src="/icon/profile_edit/back@3x.png" alt="뒤로가기 버튼" />
+        <img
+          src="/cupist-assignment/icon/profile_edit/back@3x.png"
+          alt="뒤로가기 버튼"
+        />
       </button>
       <h1>프로필 수정</h1>
     </HeaderWrapper>

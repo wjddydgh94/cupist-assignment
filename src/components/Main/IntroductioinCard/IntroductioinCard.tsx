@@ -1,95 +1,63 @@
 import styled from "styled-components";
 import palette from "styles/palette";
+import { CardDataType } from "types/card";
+import ImgSlider from "./ImgSlider";
 
-const IntroductionCard = () => {
+interface IntroductionCardPropsType {
+  data: CardDataType[];
+  isTodayRecommend?: boolean;
+  onClickDeleteButton: (id: number) => void;
+}
+
+const IntroductionCard = ({
+  data,
+  isTodayRecommend,
+  onClickDeleteButton,
+}: IntroductionCardPropsType) => {
   return (
     <IntroductionSection>
-      <li>
-        <div className="card">
-          <img
-            className="profile-img"
-            src="/profile/00.png"
-            alt="프로필 이미지"
-          />
-          <div className="contents">
-            <span className="tag">오늘의 추천</span>
-            <p className="user-name">
-              여름아 부탁해, 31
-              <img src="/icon/main/info@3x.png" alt="정보 아이콘" />
-            </p>
-            <p className="introduce">
-              데이팅 앱 처음 사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음 사용해봐용~
-            </p>
-            <p className="job-distance">그래픽 디자이너 · 2.9km</p>
-            <p className="height">172cm</p>
-            <div className="button-area">
-              <button className="delete-btn">
-                <img
-                  src="/icon/main/delete@3x.png"
-                  alt="카드 삭제 버튼 아이콘"
-                />
-              </button>
-              <button className="like-btn">좋아요</button>
+      {data.map((item) => {
+        return (
+          <li key={item.id}>
+            <div className="card">
+              <ImgSlider item={item.pictures} />
+              <div className="contents">
+                {isTodayRecommend && <span className="tag">오늘의 추천</span>}
+                <p className="user-name">
+                  {item.name}, {item.age}
+                  <img src="/icon/main/info@3x.png" alt="정보 아이콘" />
+                </p>
+                {item.introduction ? (
+                  <p className="introduce">{item.introduction}</p>
+                ) : (
+                  <>
+                    <p className="job-distance">{item.job}</p>
+                    <p className="height">{item.height}cm</p>
+                  </>
+                )}
+
+                <div className="button-area">
+                  <button
+                    className="delete-btn"
+                    onClick={() => onClickDeleteButton(item.id)}
+                  >
+                    <img
+                      src="/icon/main/delete@3x.png"
+                      alt="카드 삭제 버튼 아이콘"
+                    />
+                  </button>
+                  <button
+                    onClick={() => onClickDeleteButton(item.id)}
+                    className="like-btn"
+                  >
+                    좋아요
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div className="card">
-          <img
-            className="profile-img"
-            src="/profile/00.png"
-            alt="프로필 이미지"
-          />
-          <div className="contents">
-            <span className="tag">오늘의 추천</span>
-            <p className="user-name">
-              여름아 부탁해, 31
-              <img src="/icon/main/info@3x.png" alt="정보 아이콘" />
-            </p>
-            <p className="introduce">
-              데이팅 앱 처음 사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음
-              사용해봐용~데이팅 앱 처음 사용해봐용~데이팅 앱 처음 사용해봐용~
-            </p>
-            <p className="job-distance">그래픽 디자이너 · 2.9km</p>
-            <p className="height">172cm</p>
-            <div className="button-area">
-              <button className="delete-btn">
-                <img
-                  src="/icon/main/delete@3x.png"
-                  alt="카드 삭제 버튼 아이콘"
-                />
-              </button>
-              <button className="like-btn">좋아요</button>
-            </div>
-          </div>
-        </div>
-      </li>
+          </li>
+        );
+      })}
     </IntroductionSection>
   );
 };
@@ -113,13 +81,7 @@ const IntroductionSection = styled.section`
       left: 0;
       width: 100%;
       height: 100%;
-      .profile-img {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        object-fit: cover;
-        object-position: 50% 50%;
-      }
+
       .contents {
         position: absolute;
         bottom: 0;

@@ -10,12 +10,8 @@ const Header = () => {
           <li className="active">
             <img src="/icon/main/logo@3x.png" alt="글램 로고 아이콘" />
           </li>
-          <li>
-            <p>근처</p>
-          </li>
-          <li>
-            <p>라이브</p>
-          </li>
+          <li>근처</li>
+          <li>라이브</li>
         </HeaderUl>
         <Link to="edit-profile">
           <img
@@ -63,11 +59,9 @@ const HeaderUl = styled.ul`
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: ${palette.Gray_2};
     img {
       width: 63px;
-    }
-    p {
-      color: ${palette.Gray_2};
     }
     &.active {
       border-bottom: 2px solid ${palette.Dark_Gray_1};

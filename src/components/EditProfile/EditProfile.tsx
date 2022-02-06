@@ -51,6 +51,7 @@ const EditProfile = () => {
               <input
                 className={profileData?.name ? "active" : ""}
                 value={profileData?.name}
+                disabled
               />
               <img
                 className="lock-icon"
@@ -65,6 +66,7 @@ const EditProfile = () => {
               <input
                 className={profileData?.gender ? "active" : ""}
                 value={profileData?.gender === "M" ? "남성" : "여성"}
+                disabled
               />
             </div>
           </div>
@@ -74,6 +76,7 @@ const EditProfile = () => {
               <input
                 className={profileData?.birthday ? "active" : ""}
                 value={profileData?.birthday}
+                disabled
               />
             </div>
           </div>
@@ -83,6 +86,7 @@ const EditProfile = () => {
               <input
                 className={profileData?.location ? "active" : ""}
                 value={profileData?.location}
+                disabled
               />
             </div>
           </div>

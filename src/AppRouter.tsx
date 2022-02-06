@@ -5,8 +5,11 @@ import MainPage from "./routes/MainPage";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/edit-profile" element={<EditProfilePage />} />
+      <Route path="/cupist-assignment/" element={<MainPage />} />
+      <Route
+        path="/cupist-assignment//edit-profile"
+        element={<EditProfilePage />}
+      />
     </Routes>
   );
 };

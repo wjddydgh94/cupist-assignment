@@ -11,7 +11,7 @@
 
 ## 메인 페이지
 
-<img src="https://user-images.githubusercontent.com/52948971/152684278-60e931cd-3ffc-4c5b-afd3-0315ca1c5e32.mov" />
+<img src="https://user-images.githubusercontent.com/52948971/152685358-39e5f068-f412-4886-b2e8-d2ea3c0f4e8c.mov" />
 
 ### 구현 기능
 

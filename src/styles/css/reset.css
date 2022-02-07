@@ -146,3 +146,6 @@ input:disabled {
 img {
   max-width: 100%;
 }
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
